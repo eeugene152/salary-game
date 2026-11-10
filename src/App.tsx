@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from './components/Modal';
+import './App.css'
 
 type TStep = 'start' | 'fired' | 'smile';
 
@@ -12,21 +13,19 @@ export function App() {
         <button onClick={() => setStep('fired')}>Хочу повышения зарплаты</button>
       )}
       {step === 'fired' && (
-        <div className='block'>
+        <Modal
+          // подключаем пропс onClose для модалки - что делать при нажатии escape
+          // в нашем случае - возвращяться на стартовый экран, который определяется стейтом 'start'
+          onClose={() => setStep('start')}
+          footer={
+            <div className='button-block'>
+              <button onClick={() => setStep('start')}>Вернуться в начало</button>
+              <button onClick={() => setStep('smile')}>Я согласен!</button>
+            </div>
+          }
+        >
           <p>Вы уволены!</p>
-          <button onClick={() => setStep('start')}>Вернуться в начало</button>
-          <button onClick={() => setStep('smile')}>Я согласен!</button>
-        </div>
-        // <Modal
-        //   footer={
-        //     <div>
-        //       <button onClick={() => setStep('start')}>Вернуться в начало</button>
-        //       <button onClick={() => setStep('smile')}>Я согласен!</button>
-        //     </div>
-        //   }
-        // >
-        //   <p>Вы уволены!</p>
-        // </Modal>
+        </Modal>
       )}
       {step === 'smile' && (
         <div className='block'>

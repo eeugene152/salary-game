@@ -1,0 +1,23 @@
+.overlay {
+  /* фиксированное позиционирование на весь экран с полупрозр фоном */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window {
+  /* белый фон, отступы и скругленные углы */
+  background-color: #fff;
+  color: #222;
+  padding: 24px 32px;
+  border-radius: 12px;
+  min-width: 300 px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
